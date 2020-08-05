@@ -1,5 +1,6 @@
 package com.tpb.spark.s3
 
+import org.apache.spark.rdd.RDD
 import org.apache.spark.sql.SparkSession
 
 object RDDReadTextFiles extends App {
@@ -9,13 +10,11 @@ object RDDReadTextFiles extends App {
     .appName("ReadTextFiles")
     .getOrCreate()
   // Replace Key with your AWS account key (You can find this on IAM
-  spark.sparkContext
-    .hadoopConfiguration.set("fs.s3n.awsAccessKeyId ", "paste access key")
+  spark.sparkContext.hadoopConfiguration.set("fs.s3n.awsAccessKeyId ", "paste access key")
   // Replace Key with your AWS secret key (You can find this on IAM
-  spark.sparkContext
-    .hadoopConfiguration.set("fs.s3n.awsSecretAccessKey", "paste secret key")
-  spark.sparkContext
-    .hadoopConfiguration.set("fs.s3n.endpoint", "s3.amazonaws.com")
+  spark.sparkContext.hadoopConfiguration.set("fs.s3n.awsSecretAccessKey", "paste secreat key")
+
+  spark.sparkContext.hadoopConfiguration.set("fs.s3n.endpoint", "s3.amazonaws.com")
   spark.sparkContext.setLogLevel("ERROR")
 
   println("##spark read text files from a directory into RDD")
@@ -26,4 +25,12 @@ object RDDReadTextFiles extends App {
   rddFromFile.collect().foreach(f => {
     println(f)
   })
+
+  println("##read whole text files")
+  val rddWhole:RDD[(String,String)] = spark.sparkContext.wholeTextFiles("s3n://nagaraju-databricks-test1/neighbourhoods.csv")
+  println(rddWhole.getClass)
+  rddWhole.foreach(f=>{
+    println(f._1+"=>"+f._2)
+  })
+
 }
