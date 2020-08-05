@@ -1,2 +1,9 @@
 *.class
 *.log
+
+.jar
+.war
+
+# Idea
+.idea/
+target/
