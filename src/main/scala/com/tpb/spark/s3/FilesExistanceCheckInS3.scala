@@ -12,9 +12,9 @@ object FilesExistanceCheckInS3 extends App {
     .appName("FilesExistanceCheckInS3")
     .getOrCreate()
   // Replace Key with your AWS account key (You can find this on IAM
-  spark.sparkContext.hadoopConfiguration.set("fs.s3n.awsAccessKeyId ", "AKIAUWX5UY7AZYILSQEX")
+  spark.sparkContext.hadoopConfiguration.set("fs.s3n.awsAccessKeyId ", "key")
   // Replace Key with your AWS secret key (You can find this on IAM
-  spark.sparkContext.hadoopConfiguration.set("fs.s3n.awsSecretAccessKey", "BchjWGvp+FhJ/chcrfC5J4agUlc4fC9HPozoMBub")
+  spark.sparkContext.hadoopConfiguration.set("fs.s3n.awsSecretAccessKey", "secret key")
 
   spark.sparkContext.hadoopConfiguration.set("fs.s3n.endpoint", "s3.amazonaws.com")
   spark.sparkContext.setLogLevel("ERROR")
