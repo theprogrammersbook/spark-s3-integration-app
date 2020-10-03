@@ -7,13 +7,13 @@ object RateSourceS3Sink extends App {
   val spark = SparkSession.builder()
     .appName("RateSourceS3Sink")
     .master("local[*]")
-    .config("spark.sql.warehouse.dir", "s3n://nagaraju-cheking-bucket-name")
+    .config("spark.sql.warehouse.dir", "s3n://")
     .getOrCreate()
   // Read the json files
 
-  spark.sparkContext.hadoopConfiguration.set("fs.s3n.awsAccessKeyId ", "AKIAJUXWBYIHEKL2KHRQ")
+  spark.sparkContext.hadoopConfiguration.set("fs.s3n.awsAccessKeyId ", "dddd")
   // Replace Key with your AWS secret key (You can find this on IAM
-  spark.sparkContext.hadoopConfiguration.set("fs.s3n.awsSecretAccessKey", "e1AsnM7Do6N8pMCuHLEqGMxiUK2LHeyTUkvFlVuv")
+  spark.sparkContext.hadoopConfiguration.set("fs.s3n.awsSecretAccessKey", "dffffff")
 
   spark.sparkContext.hadoopConfiguration.set("fs.s3n.endpoint", "s3.amazonaws.com")
 
@@ -26,8 +26,8 @@ object RateSourceS3Sink extends App {
     // File Source
   val outputData = inputData.writeStream.format("json")
     .outputMode("append")
-    .option("path","s3n://nagaraju-cheking-bucket-name")
-    .option("checkpointLocation","s3n://nagaraju-cheking-bucket-name")
+    .option("path","s3n:/")
+    .option("checkpointLocation","s3n://nag")
     .start()
   // Starting streaming
   outputData.awaitTermination()

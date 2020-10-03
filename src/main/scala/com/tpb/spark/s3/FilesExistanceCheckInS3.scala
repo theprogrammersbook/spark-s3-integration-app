@@ -11,9 +11,9 @@ object FilesExistanceCheckInS3 extends App {
     .appName("FilesExistanceCheckInS3")
     .getOrCreate()
   // Replace Key with your AWS account key (You can find this on IAM
-  spark.sparkContext.hadoopConfiguration.set("fs.s3n.awsAccessKeyId ", "AKIAJUXWBYIHEKL2KHRQ")
+  spark.sparkContext.hadoopConfiguration.set("fs.s3n.awsAccessKeyId ", "sf")
   // Replace Key with your AWS secret key (You can find this on IAM
-  spark.sparkContext.hadoopConfiguration.set("fs.s3n.awsSecretAccessKey", "e1AsnM7Do6N8pMCuHLEqGMxiUK2LHeyTUkvFlVuv")
+  spark.sparkContext.hadoopConfiguration.set("fs.s3n.awsSecretAccessKey", "fsfes")
 
   spark.sparkContext.hadoopConfiguration.set("fs.s3n.endpoint", "s3.amazonaws.com")
   spark.sparkContext.setLogLevel("ERROR")
@@ -24,7 +24,7 @@ object FilesExistanceCheckInS3 extends App {
   println("Accessing with URL and then Path")
   val configuration = spark.sparkContext.hadoopConfiguration
   try{
-    val fileSystem = FileSystem.get(new URI("s3n://good-man-nagaraju-s3-family"),configuration)
+    val fileSystem = FileSystem.get(new URI("s3n://go"),configuration)
    // fileSystem.listStatus(new Path("/NagarajuGajula/")).foreach(println)
   }catch{
     case ex: Exception => {
