@@ -1,4 +1,4 @@
-package com.tpb.spark.s3
+package com.tpb.spark
 
 import org.apache.spark.rdd.RDD
 import org.apache.spark.sql.SparkSession
@@ -10,9 +10,9 @@ object RDDReadTextFiles extends App {
     .appName("ReadTextFiles")
     .getOrCreate()
   // Replace Key with your AWS account key (You can find this on IAM
-  spark.sparkContext.hadoopConfiguration.set("fs.s3n.awsAccessKeyId ", "AKIAUWX5UY7AZYILSQEX")
+  spark.sparkContext.hadoopConfiguration.set("fs.s3n.awsAccessKeyId ", "key")
   // Replace Key with your AWS secret key (You can find this on IAM
-  spark.sparkContext.hadoopConfiguration.set("fs.s3n.awsSecretAccessKey", "BchjWGvp+FhJ/chcrfC5J4agUlc4fC9HPozoMBub")
+  spark.sparkContext.hadoopConfiguration.set("fs.s3n.awsSecretAccessKey", "secretkey")
 
   spark.sparkContext.hadoopConfiguration.set("fs.s3n.endpoint", "s3.amazonaws.com")
   spark.sparkContext.setLogLevel("ERROR")

@@ -1,4 +1,4 @@
-package com.tpb.spark.s3
+package com.tpb.spark
 
 import java.net.URI
 

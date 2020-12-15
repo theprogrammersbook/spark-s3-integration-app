@@ -1,3 +1,5 @@
+package com.tpb.spark
+
 import org.apache.spark.sql.SparkSession
 
 object ReadHDFSFile extends App{
