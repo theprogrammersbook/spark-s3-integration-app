@@ -11,9 +11,9 @@ object ParquetAWS_S3A_Example extends App{
       .appName("nagaraju-databricks-test1.com")
       .getOrCreate()
     spark.sparkContext
-      .hadoopConfiguration.set("fs.s3a.access.key", "AKIAIZNGMNQNI5HGQEKA")
+      .hadoopConfiguration.set("fs.s3a.access.key", "A")
     spark.sparkContext
-      .hadoopConfiguration.set("fs.s3a.secret.key", "nqsUWBbRA8iWHf6lBby1coWbi5Ovw7vyqcjgnEVP")
+      .hadoopConfiguration.set("fs.s3a.secret.key", "P")
     spark.sparkContext
       .hadoopConfiguration.set("fs.s3a.endpoint", "s3.amazonaws.com")
    // spark.sparkContext
