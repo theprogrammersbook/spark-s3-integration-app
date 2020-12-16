@@ -10,9 +10,9 @@ object ParquetAWS_S3N_Example extends App{
       .master("local[1]")
       .appName("nagaraju-databricks-test1.com")
       .getOrCreate()
-    spark.sparkContext.hadoopConfiguration.set("fs.s3n.awsAccessKeyId ", "AKIAIZNGMNQNI5HGQEKA")
+    spark.sparkContext.hadoopConfiguration.set("fs.s3n.awsAccessKeyId ", "A")
     // Replace Key with your AWS secret key (You can find this on IAM
-    spark.sparkContext.hadoopConfiguration.set("fs.s3n.awsSecretAccessKey", "nqsUWBbRA8iWHf6lBby1coWbi5Ovw7vyqcjgnEVP")
+    spark.sparkContext.hadoopConfiguration.set("fs.s3n.awsSecretAccessKey", "g")
     spark.sparkContext.hadoopConfiguration.set("fs.s3n.endpoint", "s3.amazonaws.com")
 
     val data = Seq(("James ","Rose","Smith","36636","M",3000),
