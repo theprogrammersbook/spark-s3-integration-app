@@ -4,16 +4,14 @@ import org.apache.spark.sql.SparkSession
 
 object ParquetAWS_S3A_Example extends App{
 
-
-
     val spark: SparkSession = SparkSession.builder()
       .master("local[1]")
       .appName("nagaraju-databricks-test1.com")
       .getOrCreate()
     spark.sparkContext
-      .hadoopConfiguration.set("fs.s3a.access.key", "A")
+      .hadoopConfiguration.set("fs.s3a.access.key", "")
     spark.sparkContext
-      .hadoopConfiguration.set("fs.s3a.secret.key", "P")
+      .hadoopConfiguration.set("fs.s3a.secret.key", "")
     spark.sparkContext
       .hadoopConfiguration.set("fs.s3a.endpoint", "s3.amazonaws.com")
    // spark.sparkContext
